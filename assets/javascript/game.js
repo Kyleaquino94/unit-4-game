@@ -1,5 +1,5 @@
 //Global Variables
-alert("test");
+
 
 //Crystal Variables
 var crystal = {
@@ -11,17 +11,17 @@ var crystal = {
     red:{
         name: "red",
         value:0
-    }
+    },
 
     purple:{
-        name: "purple"
+        name: "purple",
         value: 0
-    }
+    },
 
     yellow: {
-        name: "yellow"
+        name: "yellow",
         value: 0
-    }
+    },
 };
 
 //Scores (current and target)
@@ -36,12 +36,63 @@ var lossCount    = 0;
 
 //Functions
 
+var getRandom = function(min, max) {
+    targetScore= Math.floor(Math.random() * (max - min +1)) + min;
+
+}
+var startGame = function(){
+//reset the current score
+    var currentScore = 0;
+//set a new target score (between 19 and 120)
+    targetScore = getRandom(19,120);
+
+//set different values for each of the crystals (between 1 and 12)
+crystal.blue.value  = getRandom(1,12);
+crystal.red.value   = getRandom(1,12);
+crystal.purple.value= getRandom(1,12);
+crystal.yellow.value= getRandom(1,12);
+
+//change the html to reflect all of these changes.
+$("#yourScore").html(currentScore);
+$("#targetScore").html(targetScore);
 
 
+
+
+console.log("--------------------")
+console.log("Target score: " + targetScore);
+console.log("blue: " + crystal.blue.value + " | Red: " + crystal.red.value + " | purple: " + crystal.purple.value + " | yellow: " + crystal.yellow.value);
+}
+
+//Clicks on the crystal
+var addValues = function(crystal){
+    currentScore = currentScore + crystal.value;
+
+    console.log("Your Score: " + currentScore);
+
+}
+
+
+
+
+//start game
+startGame();
 
 //Main Process
 $("#blue").click(function() {
-    
+    addValues(crystal.blue);
+});
+
+$("#red").click(function() {
+    addValues(crystal.red);
+});
+
+$("#purple").click(function() {
+    addValues(crystal.purple);
+});
+
+$("#yellow").click(function() {
+    addValues(crystal.yellow);
 });
 
 
