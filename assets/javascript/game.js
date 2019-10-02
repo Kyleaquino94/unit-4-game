@@ -1,26 +1,26 @@
-//Global Variables
+
 
 
 //Crystal Variables
 var crystal = {
     blue:{
         name: "blue",
-        value: 0
+        value:  0
     },
     
     red:{
         name: "red",
-        value:0
+        value:  0
     },
 
     purple:{
         name: "purple",
-        value: 0
+        value:  0
     },
 
     yellow: {
         name: "yellow",
-        value: 0
+        value:  0
     },
 };
 
@@ -37,14 +37,14 @@ var lossCount    = 0;
 //Functions
 
 var getRandom = function(min, max) {
-    targetScore= Math.floor(Math.random() * (max - min +1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 
 }
 var startGame = function(){
 //reset the current score
-    var currentScore = 0;
+     currentScore = 0;
 //set a new target score (between 19 and 120)
-    targetScore = getRandom(19,120);
+    targetScore = getRandom(19, 120);
 
 //set different values for each of the crystals (between 1 and 12)
 crystal.blue.value  = getRandom(1,12);
@@ -66,9 +66,37 @@ console.log("blue: " + crystal.blue.value + " | Red: " + crystal.red.value + " |
 
 //Clicks on the crystal
 var addValues = function(crystal){
+
     currentScore = currentScore + crystal.value;
 
+    $("#yourScore").html(currentScore);
+
+    userWin();
+
     console.log("Your Score: " + currentScore);
+
+}
+
+//user won or lost and reset the game
+var userWin = function() {
+    //current score is larger than target score
+    if(currentScore > targetScore) {
+        alert("you lose");
+        console.log("you lose");
+        lossCount++;
+        $("#lossCount").html(lossCount);
+        startGame();
+    }
+    else if(currentScore === targetScore){
+        alert("congrats");
+        winCount++;
+        $("#winCount").html(winCount);
+
+        startGame();
+
+
+
+    }
 
 }
 

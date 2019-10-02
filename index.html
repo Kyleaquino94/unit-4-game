@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/style.css"
 
         
 <title>Crystal Collector</title>
@@ -29,7 +29,7 @@
                 <div class="panel-heading" style="background-color: navajowhite">
                     <h3 class="panel-title" style="color: black"><strong>Instructions</strong></h3>
                 </div>
-                <div class="panel-body"style="background-color: navajowhite">
+                <div class="panel-body"id="instruction" style="background-color: navajowhite">
                     <p>You will be given a random number at the start of the game.</p>
                     <p>There are four crystals below.  by clicking on a crystal you will add a specific amount of points to your total score.</p>
                     <p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
@@ -41,7 +41,7 @@
         </div>
     </div>
 <!---Target Score-->
-    <div class ="row">
+    <div class ="row1">
         <div class="col-lg-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -96,7 +96,7 @@
                 <h3 class="text-center panel-title">Wins:</h3>
             </div>
         <div class="panel-body">
-                <h3 class="text-center"><strong>27</strong></h3>
+                <h3 class="text-center" id="winCount">0</h3>
             </div>
         </div>
     </div>
@@ -109,7 +109,7 @@
                 <h3 class="text-center panel-title">Loses:</h3>
         </div>
             <div class="panel-body">
-                <h3 class="text-center"><strong>27</strong></h3>
+                <h3 class="text-center" id="lossCount">0</h3>
              </div>
          </div>
      </div>
